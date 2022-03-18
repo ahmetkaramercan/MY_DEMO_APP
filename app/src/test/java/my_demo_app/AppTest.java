@@ -24,30 +24,30 @@ class AppTest {
     @Test
     public void testNotFoundForSmallerK() {
         ArrayList<Integer> array = new ArrayList<>(Arrays.asList(4, 2, 10, 2,  3, 20, 12, 7,9));
-        assertFalse(App.search_pow(array, 3, 18));
+        assertFalse(App.checkSubarraySum(array, 3, 18));
     }
 
     @Test
     public void testNotFoundForBiggerK() {
         ArrayList<Integer> array = new ArrayList<>(Arrays.asList(4, 2, 10, 2,  3, 20, 12, 7,9));
-        assertFalse(App.search_pow(array, 5, 18));
+        assertFalse(App.checkSubarraySum(array, 5, 18));
     }
 
     @Test
     public void testFoundForBiggerKWhenAddZero() {
         ArrayList<Integer> array = new ArrayList<>(Arrays.asList(0, 4, 2, 10, 2,  3, 20, 12, 7,9));
-        assertTrue(App.search_pow(array, 5, 18));
+        assertTrue(App.checkSubarraySum(array, 5, 18));
     }  
 
     @Test
     public void testEmptyArray() {
       ArrayList<Integer> array = new ArrayList<>();
-      assertFalse(App.search_pow(array, 2, 5));
+      assertFalse(App.checkSubarraySum(array, 2, 5));
     }
 
     @Test
     public void testNull() {
-      assertFalse(App.search_pow(null, 4, 5));
+      assertFalse(App.checkSubarraySum(null, 4, 5));
     }
 
 }

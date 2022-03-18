@@ -1,40 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>My application</title>
-  </head>
-  <body>
-    <!-- Optional JavaScript; choose one of the two! -->
+</head>
+<body>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
+<div  style="background-color:RGB(223, 207, 190);">
     <div class="container">
-        <h1>Hello, World!</h1>
-        Result is {{result}}
+        <br>
+        <br>
+        <h1>Subarray of size k with given sum</h1>
+        <p>Write an array arr[], an integer K and a Sum. The task is to check if there exists any subarray with K elements whose sum is equal to the given sum.
+             If any of the subarray with size K has the sum equal to the given sum then result is True otherwise result is False.</p>        
 
-
+       <br>
+       <p style="font-size:20px; display: flex; justify-content: center; align-items: center;
+       font-weight:bold; width: 300px; height:50px;  border-radius: 100% 100% 100% 100%;
+       background-color: rgba(255, 128, 0, 0.842);">Result is {{result}}</p>
+       
         <form action="compute" method="post">
-            <textarea name="input1" rows="10" cols="30"></textarea>
-            <textarea name="input2" rows="3" cols="15"></textarea>
-            <textarea name="input3" rows="3" cols="15"></textarea>
+            <div class="row  bg-light pb-4 mb-5">
+            
+                <div class = "col-sm-3 mt-3">
+                    
+                    <textarea name="input1" rows="10" cols="30"></textarea>
+                    <p> Enter array to this part. write one element per line. Ex: 
+                        4
+                        2
+                        10
+                        2
+                        3
+                        20
+                        12
+                        7
+                        9</p>
+                </div>
+                <div class = "col-sm-1"></div>
+                <div class = "col-sm-3 mt-3">
+                    <textarea name="input2" rows="3" cols="25"></textarea>
+                    <p>Enter the K value. The K value specifies the number of elements in the subarray.
+                        Just enter 1 number. Do not leave this field blank! Ex: 4
+                    </p>
+                </div>
+                <div class = "col-sm-1"></div>
+                <div class = "col-sm-3 mt-3">
+                    <textarea name="input3" rows="3" cols="25"></textarea>
+                    <p>Enter the Sum value. The Sum value is sum of the searched subarray.
+                        Just enter 1 number. Do not leave this field blank! Ex: 18
+                    </p>
+                </div>
+                <div class = "col-sm-1"></div>
             <br>
-            <input type="submit">
+            <br>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-dark btn-warning" >Send</button>
+            </div>
+        </div>
         </form>
     </div>
-  </body>
+    <br>
+    <br>
+    <br>
+</div>
+</body>
 </html>
 
 
