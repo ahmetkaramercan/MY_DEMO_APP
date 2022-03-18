@@ -15,19 +15,9 @@ import static spark.Spark.port;
 
 public class App {
     public String getGreeting() {
-        return "Hello world.";
+        return "Welcome to my project please go to copmute page.";
     }
-
-    public static boolean search(ArrayList<Integer> array, int e) {
-      System.out.println("inside search");
-      if (array == null) return false;
-
-      for (int elt : array) {
-        if (elt == e) return true;
-      }
-      return false;
-    }
-
+    
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
         /*int port = Integer.parseInt(System.getenv("PORT"));
@@ -37,30 +27,32 @@ public class App {
         get("/", (req, res) -> "Hello, World");
 
         post("/compute", (req, res) -> {
-          //System.out.println(req.queryParams("input1"));
-          //System.out.println(req.queryParams("input2"));
 
-          String input1 = req.queryParams("input1");
-          java.util.Scanner sc1 = new java.util.Scanner(input1);
-          sc1.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
-          while (sc1.hasNext())
-          {
-            int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
-            inputList.add(value);
-          }
-          sc1.close();
-          System.out.println(inputList);
+            String input1 = req.queryParams("input1");
+            java.util.Scanner sc1 = new java.util.Scanner(input1);
+            sc1.useDelimiter("[;\r\n]+");
+            java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
+            while (sc1.hasNext())
+            {
+                int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
+                inputList.add(value);
+            }
+            sc1.close();
+            System.out.println(inputList);
 
 
-          String input2 = req.queryParams("input2").replaceAll("\\s","");
-          int input2AsInt = Integer.parseInt(input2);
+            String input2 = req.queryParams("input2").replaceAll("\\s","");
+            int input2AsInt = Integer.parseInt(input2);
 
-          boolean result = App.search(inputList, input2AsInt);
+            String input3 = req.queryParams("input3").replaceAll("\\s","");
+            int input3AsInt = Integer.parseInt(input3);
 
-          Map<String, Boolean> map = new HashMap<String, Boolean>();
-          map.put("result", result);
-          return new ModelAndView(map, "compute.mustache");
+            boolean result = App.checkSubarraySum(inputList, input2AsInt, input3AsInt);
+            System.out.println(result);
+            Map<String, Boolean> map = new HashMap<String, Boolean>();
+            
+            map.put("result", result);
+            return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
 
@@ -79,5 +71,23 @@ public class App {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
+
+    static boolean checkSubarraySum(ArrayList<Integer> array, int k, int sum)
+    {
+        if (array == null) return false;
+
+        int n = array.size();
+        for (int i = 0; i < n - k + 1; i++)
+        {
+            int current_sum = 0;
+
+            for (int j = 0; j < k; j++)
+                current_sum = current_sum + array.get(i + j);
+    
+            if (current_sum == sum)
+                return true;    
+        }
+        return false;
     }
 }

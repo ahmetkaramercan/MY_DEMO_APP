@@ -16,26 +16,38 @@ class AppTest {
     }
 
     @Test
-   public void testFound() {
-      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertTrue(App.search(array, 4));
+    public void testFound() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(4, 2, 10, 2,  3, 20, 12, 7,9));
+      assertTrue(App.checkSubarraySum(array, 4, 18));
     }
 
     @Test
-    public void testNotFound() {
-      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertFalse(App.search(array, 5));
+    public void testNotFoundForSmallerK() {
+        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(4, 2, 10, 2,  3, 20, 12, 7,9));
+        assertFalse(App.search_pow(array, 3, 18));
     }
+
+    @Test
+    public void testNotFoundForBiggerK() {
+        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(4, 2, 10, 2,  3, 20, 12, 7,9));
+        assertFalse(App.search_pow(array, 5, 18));
+    }
+
+    @Test
+    public void testFoundForBiggerKWhenAddZero() {
+        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(0, 4, 2, 10, 2,  3, 20, 12, 7,9));
+        assertTrue(App.search_pow(array, 5, 18));
+    }  
 
     @Test
     public void testEmptyArray() {
       ArrayList<Integer> array = new ArrayList<>();
-      assertFalse(App.search(array, 1));
+      assertFalse(App.search_pow(array, 2, 5));
     }
 
     @Test
     public void testNull() {
-      assertFalse(App.search(null, 1));
+      assertFalse(App.search_pow(null, 4, 5));
     }
 
 }
