@@ -24,7 +24,7 @@ public class App {
         port(port);*/
         
 
-        get("/", (req, res) -> "Hello, World");
+        get("/", (req, res) -> "Welcome to my project please go to copmute page.");
 
         post("/compute", (req, res) -> {
 
