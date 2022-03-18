@@ -11,7 +11,7 @@ import static spark.Spark.*;
 
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
-
+import static spark.Spark.port;
 
 public class App {
     public String getGreeting() {
@@ -30,6 +30,9 @@ public class App {
 
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
+        /*int port = Integer.parseInt(System.getenv("PORT"));
+        port(port);*/
+        
 
         get("/", (req, res) -> "Hello, World");
 
