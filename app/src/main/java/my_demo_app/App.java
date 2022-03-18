@@ -42,10 +42,10 @@ public class App {
 
 
             String input2 = req.queryParams("input2").replaceAll("\\s","");
-            int input2AsInt = Integer.parseInt(input2);
+            Integer input2AsInt = Integer.parseInt(input2);
 
             String input3 = req.queryParams("input3").replaceAll("\\s","");
-            int input3AsInt = Integer.parseInt(input3);
+            Integer input3AsInt = Integer.parseInt(input3);
 
             boolean result = App.checkSubarraySum(inputList, input2AsInt, input3AsInt);
             System.out.println(result);
@@ -73,7 +73,7 @@ public class App {
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 
-    static boolean checkSubarraySum(ArrayList<Integer> array, int k, int sum)
+    static boolean checkSubarraySum(ArrayList<Integer> array, Integer k, Integer sum)
     {
         if (array == null) return false;
 
